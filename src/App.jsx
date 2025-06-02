@@ -85,16 +85,6 @@ function App() {
           </ul>
         )}
       </section>
-
-      <section>
-        <h2>Experimental use() (React 18+ with Suspense)</h2>
-        <button onClick={() => setToggle((prev) => !prev)}>
-          Toggle Profile
-        </button>
-        <React.Suspense fallback={<p>Loading profile...</p>}>
-          {toggle && <UserProfile />}
-        </React.Suspense>
-      </section>
     </div>
   );
 }
