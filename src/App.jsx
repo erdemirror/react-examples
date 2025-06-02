@@ -41,15 +41,6 @@ function App() {
       });
   }, []);
 
-  // useEffect for timer (example)
-  useEffect(() => {
-    const timer = setInterval(() => {
-      console.log("Tick every 2s");
-    }, 2000);
-
-    return () => clearInterval(timer); // cleanup
-  }, []);
-
   return (
     <div style={{ padding: "1rem" }}>
       <h1>React Concepts Demo</h1>
@@ -89,7 +80,6 @@ function App() {
   );
 }
 
-// ⚠️ Experimental use() hook example
 function UserProfile() {
   const user = use(fetchUsers().then((data) => data[0]));
   return (
