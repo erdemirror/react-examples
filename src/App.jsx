@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useState, useEffect, useReducer } from "react";
-import Loading from "./Loading.svg?react";
 
 const getTodos = async (id) => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -23,7 +22,7 @@ function App() {
   return (
     <div style={{ padding: "1rem", fontFamily: "Arial, sans-serif" }}>
       <section>
-        <p>{isPending ? <Loading /> : JSON.stringify(data)}</p>
+        <p>{isPending ? "Loading" : JSON.stringify(data)}</p>
 
         <center>
           <button onClick={() => refetch()}>Refetch</button>
