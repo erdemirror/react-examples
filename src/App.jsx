@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useState, useEffect, useReducer } from "react";
-import Loading from "./assets/Loading.svg?react";
+import Loading from "./public/Loading.svg?react";
 
 const getTodos = async (id) => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
