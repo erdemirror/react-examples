@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState } from "react";
 
 const getTodos = async (id) => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -15,21 +15,32 @@ function App() {
     queryKey: ["todos", id],
     queryFn: () => getTodos(id),
   });
+
   if (error) {
-    alert("something went wrong");
+    alert("Something went wrong");
   }
 
   return (
-    <div style={{ padding: "1rem", fontFamily: "Arial, sans-serif" }}>
+    <div className="max-w-5xl mx-auto p-8 text-center font-sans">
       <section>
-        <p>{isPending ? "Loading" : JSON.stringify(data)}</p>
+        <p className="mb-4">
+          {isPending ? "Loading..." : JSON.stringify(data)}
+        </p>
 
-        <center>
-          <button onClick={() => refetch()}>Refetch</button>
-          <button onClick={() => setId((prev) => prev + 1)}>
+        <div className="flex justify-center gap-4">
+          <button
+            onClick={() => refetch()}
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          >
+            Refetch
+          </button>
+          <button
+            onClick={() => setId((prev) => prev + 1)}
+            className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+          >
             Increment ID
           </button>
-        </center>
+        </div>
       </section>
     </div>
   );
